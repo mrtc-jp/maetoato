@@ -1,2 +1,2 @@
 # maetoato
-plugin-update-checker-4.9
+Version 1.0.1
