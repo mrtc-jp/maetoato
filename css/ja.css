@@ -1,0 +1,53 @@
+/*
+Theme Name: Write
+Description: Typography for Japanese.
+*/
+
+html {
+	font-size: 68%;
+}
+body {
+	font-family: 'Noto Serif JP', serif;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.8;
+	letter-spacing: .05em;
+}
+h1, h2, h3, h4, h5, h6, .site-title {
+	font-family: 'Noto Serif JP', serif;
+	font-weight: 500;
+}
+strong {
+	font-weight: 900;
+}
+.site-title {
+	font-size: 30px;
+}
+.site-description {
+	font-style: normal;
+}
+.home-text {
+	font-family: 'Noto Serif JP', serif;
+	font-size: 23px;
+	line-height: 1.8;
+}
+.intro {
+	line-height: 1.8;
+}
+.widget {
+	line-height: 1.7;
+}
+@media screen and (min-width: 783px) {
+	html {
+		font-size: 80%;
+	}
+	body {
+		font-size: 18px;
+	}
+	.site-title {
+		font-size: 36px;
+	}
+	.home-text {
+		font-size: 27px;
+	}
+}
