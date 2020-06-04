@@ -5,7 +5,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css',  array(), '8.0.0' );
-	wp_enqueue_style( 'write-style', get_stylesheet_directory_uri() . '/style.css',  array(), '1.0.1' );
+	wp_enqueue_style( 'write-style', get_stylesheet_directory_uri() . '/style.css',  array(), '1.0.2' );
 	if ( 'ja' == get_bloginfo( 'language' ) ) {
 		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap', array(), null );
 		wp_enqueue_style( 'write-style-ja', get_stylesheet_directory_uri() . '/css/ja.css', array(), null );
@@ -14,7 +14,7 @@ function theme_enqueue_styles() {
 		wp_enqueue_style( 'drawer-style', get_stylesheet_directory_uri() . '/css/drawer.css', array(), '3.2.2', 'screen and (max-width: 782px)' );
 	}
 		
-	wp_enqueue_script( 'original-js', get_stylesheet_directory_uri() . '/js/original.js', array(), '1.0.1', true );
+	wp_enqueue_script( 'original-js', get_stylesheet_directory_uri() . '/js/original.js', array(), '1.0.2', true );
 }
 
 /* Tag Cloud */
@@ -170,5 +170,33 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
     __FILE__,
     'maetoato'
 );
+
+/**
+ * SVGをアップロード
+ */
+function add_file_types_to_uploads($file_types){
+    $new_filetypes = array();
+    $new_filetypes['svg'] = 'image/svg+xml';
+    $file_types = array_merge($file_types, $new_filetypes );
+    return $file_types;
+}
+add_action('upload_mimes', 'add_file_types_to_uploads');
+
+/**
+ * サイトアイコンを個別登録
+ */
+function my_site_icon_meta_tags($meta_tags) {
+	$meta_tags[0] = '<link rel="icon" href="' .get_stylesheet_directory_uri(). '/icon/32x32.png" sizes="32x32" />';
+	$meta_tags[1] = '<link rel="icon" href="' .get_stylesheet_directory_uri(). '/icon/192x192.png" sizes="192x192" />';
+	$meta_tags[2] = '<link rel="apple-touch-icon" href="' .get_stylesheet_directory_uri(). '/icon/180x180.png" />';
+	$meta_tags[3] = '<meta name="application-name" content="まえとあと" />';
+	$meta_tags[4] = '<meta name="msapplication-square70x70logo" content="' .get_stylesheet_directory_uri(). '/icon/small.jpg" />';
+	$meta_tags[5] = '<meta name="msapplication-square150x150logo" content="' .get_stylesheet_directory_uri(). '/icon/medium.jpg" />';
+	$meta_tags[6] = '<meta name="msapplication-wide310x150logo" content="' .get_stylesheet_directory_uri(). '/icon/wide.jpg" />';
+	$meta_tags[7] = '<meta name="msapplication-square310x310logo" content="' .get_stylesheet_directory_uri(). '/icon/large.jpg" />';
+	$meta_tags[8] = '<meta name="msapplication-TileColor" content="#0000ff">';
+	return $meta_tags;
+}
+add_filter( 'site_icon_meta_tags', 'my_site_icon_meta_tags' );
 
 ?>
