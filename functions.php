@@ -166,7 +166,7 @@ add_filter( 'get_the_archive_title', function ($title) {
  */
 require 'plugin-update-checker-4.9/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/mrtc-jp/maetoato/theme.json',
+    'https://raw.githubusercontent.com/mrtc-jp/maetoato/master/theme.json',
     __FILE__,
     'maetoato'
 );
