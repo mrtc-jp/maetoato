@@ -6,7 +6,7 @@
 ## What's maetoato ?
 "**maetoato**" is a child theme of the paid theme "**[Write Pro](https://themegraphy.com/ja/documents/write/ "Write Pro")**" of WordPress.
 
-### STAFF
+## STAFF
 * Management/Editor: Daisaku Mochizuki/Mochizuki Edit
 * Web Developer: Oh Morita/morita create
 * Art director/Designer: Norichika Yokota/CANA
