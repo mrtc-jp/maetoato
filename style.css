@@ -2882,3 +2882,28 @@ ul.grofile-urls {
 		
 	}
 }
+
+/* Formfacade
+------------------------------------------------------------ */
+
+#ff-compose .ff-form .ff-title {
+	display: none;
+}
+#ff-compose .ff-form .ff-submit {
+	background: var(--blue);
+}
+#ff-compose .ff-form .ff-item textarea {
+	max-width: 100%;
+    min-height: 10em;
+}
+#ff-compose input[type="text"]:focus,
+#ff-compose input[type="email"]:focus,
+#ff-compose input[type="url"]:focus,
+#ff-compose input[type="password"]:focus,
+#ff-compose input[type="search"]:focus,
+#ff-compose textarea:focus {
+	border-color: var(--blue);
+}
+.ff-form .ff-button-bar {
+	overflow: hidden;
+}
