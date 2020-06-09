@@ -202,14 +202,17 @@ add_filter( 'site_icon_meta_tags', 'my_site_icon_meta_tags' );
 /**
  * 画像サイズの変更
  */
-add_image_size( 'maetoato-post-thumbnail-large', 1200, 580, true );
-add_image_size( 'maetoato-post-thumbnail-medium', 600, 375, true );
+function maetoato_thumb_size() {
+	add_image_size( 'write-post-thumbnail-large', 1200, 580, true );
+	add_image_size( 'write-post-thumbnail-medium', 600, 375, true );
+}
+add_action( 'after_setup_theme', 'maetoato_thumb_size', 11);
 
 /**
  * Set background of featured posts.
  */
 if ( ! function_exists( 'write_featured_post_background' ) ) :
-function write_featured_post_background( $image_size = 'maetoato-post-thumbnail-large' ) {
+function write_featured_post_background( $image_size = 'write-post-thumbnail-large' ) {
 	$featured_url = wp_get_attachment_image_src( get_post_thumbnail_id(), $image_size );
 	if ( $featured_url ) {
 		 echo ' style="background-image:url(\'' . esc_url( $featured_url[0] ) . '\')"';

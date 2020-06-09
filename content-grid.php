@@ -7,7 +7,7 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php if ( has_post_thumbnail() && ! get_theme_mod( 'write_hide_featured_image_on_grid' ) ): ?>
 		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'maetoato-post-thumbnail-medium' ); ?></a>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'write-post-thumbnail-medium' ); ?></a>
 		</div><!-- .post-thumbnail -->
 		<?php endif; ?>
 		<div class="post-content">
