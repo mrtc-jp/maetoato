@@ -1,7 +1,7 @@
 # maetoato
 
 ## Version
-1.0.3
+1.0.4
 
 ## What's maetoato ?
 "**maetoato**" is a child theme of the paid theme "**Write Pro**" of WordPress.
