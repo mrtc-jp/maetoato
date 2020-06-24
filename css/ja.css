@@ -7,18 +7,18 @@ html {
 	font-size: 68%;
 }
 body {
-	font-family: 'Noto Serif JP', serif;
+	font-family: 游明朝, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino serif", serif;
 	font-size: 15px;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 1.8;
 	letter-spacing: .05em;
 }
 h1, h2, h3, h4, h5, h6, .site-title {
-	font-family: 'Noto Serif JP', serif;
-	font-weight: 500;
+	font-family: 游明朝, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino serif", serif;
+	font-weight: 600;
 }
 strong {
-	font-weight: 900;
+	font-weight: 700;
 }
 .site-title {
 	font-size: 30px;
@@ -27,7 +27,7 @@ strong {
 	font-style: normal;
 }
 .home-text {
-	font-family: 'Noto Serif JP', serif;
+	font-family: 游明朝, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino serif", serif;
 	font-size: 23px;
 	line-height: 1.8;
 }
