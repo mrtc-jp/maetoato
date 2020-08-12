@@ -6,7 +6,7 @@ Author: morita create
 Author URI: https://mrtc.jp/
 Template: write-pro
 Description: Write Pro Child Theme
-Version: 1.0.5
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: write-pro-child
@@ -2906,4 +2906,28 @@ ul.grofile-urls {
 }
 .ff-form .ff-button-bar {
 	overflow: hidden;
+}
+
+
+/* Popular Posts
+------------------------------------------------------------ */
+.news-list.ranking {
+	counter-reset: ranking;
+}
+.news-list.ranking .post-grid {
+	position: relative;
+}
+.news-list.ranking .post-grid::after {
+	counter-increment: ranking;
+	content: counter(ranking);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2em;
+	height: 2em;
+	background: var(--blue);
+	color: #fff;
 }

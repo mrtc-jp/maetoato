@@ -4,7 +4,7 @@ function theme_enqueue_styles() {
 	/* Style Sheet */
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 	wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/css/normalize.css',  array(), '8.0.1' );
-	wp_enqueue_style( 'write-style', get_stylesheet_directory_uri() . '/style.css',  array(), '1.0.5' );
+	wp_enqueue_style( 'write-style', get_stylesheet_directory_uri() . '/style.css',  array(), '1.1.0' );
 	if ( 'ja' == get_bloginfo( 'language' ) ) {
 		/* wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap', array(), null ); */
 		wp_enqueue_style( 'write-style-ja', get_stylesheet_directory_uri() . '/css/ja.css', array(), null );
@@ -233,5 +233,56 @@ function write_featured_post_background( $image_size = 'write-post-thumbnail-lar
 	}
 }
 endif;
+
+/**
+ * 人気記事
+ */
+function theme_customize_register($wp_customize) {
+	
+	$wp_customize->add_panel( 'popular_posts_panel', array(
+		'title'    => '人気記事',
+		'priority' => 100
+	));
+	
+    $wp_customize->add_section( 'popular_posts', array(
+        'title'    => '人気記事の設定',
+        'panel'    => 'popular_posts_panel',
+        'priority' => 1
+    ));
+    
+    $wp_customize->add_setting( 'popular_posts_ranking', array(
+	    'type' => 'option',
+    	'default' => true
+	));
+    $wp_customize->add_control( 'popular_posts_ranking', array(
+		'settings'  => 'popular_posts_ranking',
+		'label'     => 'ランキング表示',
+		'section'   => 'popular_posts',
+		'type'      => 'checkbox'
+	));
+	
+	$wp_customize->add_setting( 'popular_posts_number', array(
+		'type' => 'option',
+    	'default' => 9
+	));
+    $wp_customize->add_control( 'popular_posts_number', array(
+		'settings'  => 'popular_posts_number',
+		'label'     => '表示件数（件）',
+		'section'   => 'popular_posts',
+		'type'      => 'number'
+	));
+	
+	$wp_customize->add_setting( 'popular_posts_period', array(
+		'type' => 'option',
+    	'default' => 30
+	));
+    $wp_customize->add_control( 'popular_posts_period', array(
+		'settings'  => 'popular_posts_period',
+		'label'     => 'データ取得期間（日）',
+		'section'   => 'popular_posts',
+		'type'      => 'number'
+	));
+}
+add_action( 'customize_register', 'theme_customize_register' );
 
 ?>
