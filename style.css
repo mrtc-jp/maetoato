@@ -2911,6 +2911,25 @@ ul.grofile-urls {
 
 /* Popular Posts
 ------------------------------------------------------------ */
+.news-list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.news-list::after {
+	content: "";
+	display: block;
+	width: 31%;
+}
+.news-list .post-grid {
+	margin: 0 !important;
+}
+.news-list .hentry {
+	margin-bottom: 3em;
+}
+.news-list .entry-header {
+	margin-bottom: 1em;
+}
 .news-list.ranking {
 	counter-reset: ranking;
 }
@@ -2930,4 +2949,9 @@ ul.grofile-urls {
 	height: 2em;
 	background: var(--blue);
 	color: #fff;
+}
+@media screen and (min-width: 783px) {
+	.news-list .hentry {
+	    margin-bottom: 75px;
+	}
 }
