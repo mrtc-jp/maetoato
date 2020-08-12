@@ -21,6 +21,17 @@ $post_thumb_url = $post_thumb[0];
 				<h2 class="entry-title"><a href="<?php echo get_permalink($post_id); ?>" rel="bookmark"><?php echo get_the_title($post_id); ?></a></h2>
 			</header><!-- .entry-header -->
 			<div class="entry-meta">
+				<?php
+					$categories = get_the_category($post_id);
+					$output = '';
+					if ( $categories ) {
+						foreach( $categories as $category ) {
+							$output .= '<li><a href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a></li>';
+						}
+					echo trim( '<ul class="post-categories">' . $output . '</ul>' );
+					}
+				?>
+				<?php echo get_the_tag_list( '<ul class="post-tags"><li>', '</li><li>', '</li></ul>', $post_id ); ?>
 				<p class="post-date"><?php echo get_the_date('Y.m.d', $post_id); ?></p>
 			</div><!-- .entry-summary -->
 		</div>
