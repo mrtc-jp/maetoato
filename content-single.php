@@ -5,7 +5,16 @@
  * @package Write
  */
 ?>
-
+<style type="text/css">
+#pagetop {
+	bottom: 56px;
+}
+@media screen and (min-width: 960px) {
+	#pagetop {
+		bottom: 0;
+	}
+}
+</style>
 <div class="post-full post-full-summary">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
