@@ -4,7 +4,7 @@ function theme_enqueue_styles() {
 	/* Style Sheet */
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 	wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/css/normalize.css',  array(), '8.0.1' );
-	wp_enqueue_style( 'write-style', get_stylesheet_directory_uri() . '/style.css',  array(), '1.1.2' );
+	wp_enqueue_style( 'write-style', get_stylesheet_directory_uri() . '/style.css',  array(), '1.2.0' );
 	if ( 'ja' == get_bloginfo( 'language' ) ) {
 		/* wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap', array(), null ); */
 		wp_enqueue_style( 'write-style-ja', get_stylesheet_directory_uri() . '/css/ja.css', array(), null );
@@ -15,6 +15,9 @@ function theme_enqueue_styles() {
 	/* Javascript */
 	wp_deregister_script('jquery');
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), "3.5.1");
+	if( is_page_template( 'page-popular.php' ) ) {
+		wp_enqueue_script( 'jquery-ui', '//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array(), "1.12.1");
+	}
 	if ( ! get_theme_mod( 'write_hide_navigation' ) ) {
 		wp_enqueue_script( 'iscroll', get_template_directory_uri() . '/js/iscroll.js', array( 'jquery' ), '5.2.0', true );
 		wp_enqueue_script( 'drawer', get_template_directory_uri() . '/js/drawer.js', array( 'jquery' ), '3.2.2', true );
@@ -284,5 +287,20 @@ function theme_customize_register($wp_customize) {
 	));
 }
 add_action( 'customize_register', 'theme_customize_register' );
+
+//SmartNewsフィード追加
+add_action('init', function (){
+	add_feed('smartnews', function () {
+		get_template_part('smartnews');
+	});
+});
+
+//SmartNewsのHTTP header for Content-type
+add_filter( 'feed_content_type', function ( $content_type, $type ) {
+	if ( 'smartnews' === $type ) {
+		return feed_content_type( 'rss2' );
+	}
+	return $content_type;
+}, 10, 2 );
 
 ?>
