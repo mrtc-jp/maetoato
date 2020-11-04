@@ -35,7 +35,6 @@ get_header(); ?>
 			?>
 			
 			<div id="week">
-			<h2>Week</h2>
 			<?php	
 			    $args = array(
 			        'display_count' => $popular_posts_number,
@@ -58,7 +57,6 @@ get_header(); ?>
 			</div>
 			
 			<div id="month">
-			<h2>Month</h2>
 			<?php	
 			    $args = array(
 			        'display_count' => $popular_posts_number,
@@ -81,7 +79,6 @@ get_header(); ?>
 			</div>
 			
 			<div id="year">
-			<h2>Year</h2>
 			<?php	
 			    $args = array(
 			        'display_count' => $popular_posts_number,
