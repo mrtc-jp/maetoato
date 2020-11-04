@@ -127,6 +127,15 @@ do_action( 'rss_tag_pre', 'rss2' );
 			<wfw:commentRss><?php echo esc_url( get_post_comments_feed_link( null, 'rss2' ) ); ?></wfw:commentRss>
 			<slash:comments><?php echo get_comments_number(); ?></slash:comments>
 		<?php endif; ?>
+		
+		<snf:advertisement>
+			<snf:adcontent>
+			<![CDATA[
+			<script data-ad-client="ca-pub-1077912276692854" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-W832WLDCR6"></script>
+			]]>
+			</snf:adcontent>
+		</snf:advertisement>
 
 		<?php rss_enclosure(); ?>
 
