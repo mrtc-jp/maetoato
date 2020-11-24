@@ -1,5 +1,5 @@
 <div class="profile">
-	<h2 class="">Profile</h5>
+	<h2 class="title">Profile</h2>
 	<div class="cast-list">
 		<div class="cast">
 			<p class="name"><?php the_field('cast_name1'); ?></p>

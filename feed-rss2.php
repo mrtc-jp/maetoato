@@ -117,7 +117,10 @@ do_action( 'rss_tag_pre', 'rss2' );
 			<description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
 			<?php $content = get_the_content_feed( 'rss2' ); ?>
 			<?php if ( strlen( $content ) > 0 ) : ?>
-				<content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
+				<content:encoded>
+					<![CDATA[<?php echo $content; ?>]]>
+					<?php get_template_part( 'content', 'profile' ); ?>
+				</content:encoded>
 			<?php else : ?>
 				<content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
 			<?php endif; ?>

@@ -3,7 +3,7 @@
   $share_title = get_the_title();
 ?>
 <div class="share">
-	<h2 class="">Share Post</h2>
+	<h2 class="title">Share Post</h2>
 	<ul class="sns-share menu">
 		
 		<!--Shareボタン1--> 
