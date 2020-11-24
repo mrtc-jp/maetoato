@@ -8,10 +8,15 @@
 			pagetop.fadeOut();
 		}
 	});
-	pagetop.click(function() {
-		$('body, html').animate({
-			scrollTop: 0
-		}, 500);
+	$('a[href^="#"]').click(function() {
+		var speed = 500;
+		var anime = 'swing';
+		var href= $(this).attr("href");
+		var target = $(href == "#" || href == "" ? 'html' : href);
+		var position = target.offset().top;
+		$('body,html').animate({
+			scrollTop: position
+		}, speed, anime);
 		return false;
 	});
 })(jQuery);
